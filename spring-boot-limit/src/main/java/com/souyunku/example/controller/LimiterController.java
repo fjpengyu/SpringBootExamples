@@ -24,7 +24,7 @@ public class LimiterController {
     private RedisTemplate redisTemplate;
 
     // 10 秒中，可以访问10次
-    @RateLimit(key = "test", time = 10, count = 1)
+    @RateLimit(key = "test", time = 10, count = 10)
     @GetMapping("/test")
     public String luaLimiter() {
         RedisAtomicInteger entityIdCounter = new RedisAtomicInteger("entityIdCounter", redisTemplate.getConnectionFactory());
